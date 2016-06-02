@@ -1,0 +1,76 @@
+config {
+    index_enable = 1
+    index_externals = 0
+    index_metatags = 1
+
+    no_cache = 0
+    disableAllHeaderCode = 1
+    cache_clearAtMidnight = 1
+    admPanel = 0
+    absRefPrefix = /
+
+    doctypeSwitch = 0
+    doctype = html5
+
+    spamProtectEmailAddresses = 2
+    spamProtectEmailAddresses_atSubst = (at)
+
+    removeDefaultJS = 1
+    removeDefaultJS = external
+
+    inlineStyle2TempFile = 1
+    disablePrefixComment = 1
+    disableImgBorderAttr = 1
+
+    noPageTitle = 1
+
+    #pageRendererTemplateFile = {$site.dir.base}{$site.dir.templates}pageRenderer.html
+
+    # CoolURI/RealURL konfigurieren
+    simulateStaticDocuments = 0
+    baseURL =
+    tx_realurl_enable = 1
+    typolinkEnableLinksAcrossDomains = 0
+    tx_cooluri_enable = 0
+    redirectOldLinksToNew = 0
+    prefixLocalAnchors = all
+}
+
+plugin.tx_falprocessing {
+    settings {
+
+    }
+}
+
+plugin.tx_rest.settings {
+    responseHeaders {
+        Access-Control-Allow-Origin = *
+        Access-Control-Allow-Credentials = true
+        Access-Control-Allow-Methods = GET, POST, DELETE
+        Access-Control-Allow-Headers = content-type
+        Access-Control-Request-Headers = accept, content-type
+    }
+
+    languages {
+        de_DE = 0
+        en_GB = 1
+    }
+
+    paths {
+        10 {
+            path = jens_jacobsen-rest_falprocessing-image
+            read = allow
+            write = allow
+        }
+    }
+
+    aliases {
+        image = jens_jacobsen-rest_falprocessing-image
+    }
+
+    cacheLifeTime = -1
+    doNotAddClass = 1
+}
+
+page = PAGE
+page.10 < styles.content.get
