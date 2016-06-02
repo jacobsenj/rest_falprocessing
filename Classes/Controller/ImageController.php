@@ -85,8 +85,6 @@ class ImageController extends \JensJacobsen\RestFalprocessing\Controller\Abstrac
             } else {
                 $publicUrl = $this->getPublicImageUrl($file);
             }
-            debug($publicUrl);
-            exit;
             if (!empty($publicUrl)) {
                 return $this->returnData(array('publicUrl' => $publicUrl));
             }
